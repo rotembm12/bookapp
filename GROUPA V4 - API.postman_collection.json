@@ -1,0 +1,972 @@
+{
+	"info": {
+		"_postman_id": "07c5d8b1-a649-4d39-8b97-cbf662c7cdb0",
+		"name": "GROUPA V4 - API",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these request types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n``` c\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a variable called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Tests\" tab**\n\nTests help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/b5f280a7-4b09-48ec-857f-0a7ed99d7ef8/U2NyZWVuc2hvdCAyMDIzLTAzLTI3IGF0IDkuNDcuMjggUE0ucG5n\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n- Add more scripts in \"Tests\" to verify if the API works as expected and execute flows.\n    \n\n## ℹ️ Resources\n\n[Building requests](https://learning.postman.com/docs/sending-requests/requests/)  \n[Authorizing requests](https://learning.postman.com/docs/sending-requests/authorization/)  \n[Using variables](https://learning.postman.com/docs/sending-requests/variables/)  \n[Managing environments](https://learning.postman.com/docs/sending-requests/managing-environments/)  \n[Writing scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18978124"
+	},
+	"item": [
+		{
+			"name": "friends",
+			"item": [
+				{
+					"name": "frienddelete",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/api.aspx?method=frienddelete&isCustomErr=false&cloudcode=test&app_version=3.4.259.d&device_type=android&lang=he&token={{token}}&event_token={{album_token}}&master_token=97f29c84265c428b890a782b3b292f2e",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"api.aspx"
+							],
+							"query": [
+								{
+									"key": "method",
+									"value": "frienddelete"
+								},
+								{
+									"key": "isCustomErr",
+									"value": "false"
+								},
+								{
+									"key": "cloudcode",
+									"value": "test"
+								},
+								{
+									"key": "app_version",
+									"value": "3.4.259.d"
+								},
+								{
+									"key": "device_type",
+									"value": "android"
+								},
+								{
+									"key": "lang",
+									"value": "he"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "event_token",
+									"value": "{{album_token}}"
+								},
+								{
+									"key": "master_token",
+									"value": "97f29c84265c428b890a782b3b292f2e"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "friendshareinfo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/api.aspx?method=friendshareinfo&isCustomErr=false&cloudcode=public&app_version=3.4.259.d&device_type=android&lang=en&token={{token}}&shared_token={{album_token}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"api.aspx"
+							],
+							"query": [
+								{
+									"key": "method",
+									"value": "friendshareinfo"
+								},
+								{
+									"key": "isCustomErr",
+									"value": "false"
+								},
+								{
+									"key": "cloudcode",
+									"value": "public"
+								},
+								{
+									"key": "app_version",
+									"value": "3.4.259.d"
+								},
+								{
+									"key": "device_type",
+									"value": "android"
+								},
+								{
+									"key": "lang",
+									"value": "en"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "shared_token",
+									"value": "{{album_token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "friendrequest",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/api.aspx?method=friendrequest&isCustomErr=false&cloudcode=public&app_version=3.4.259.d&device_type=android&lang=en&token={{token}}&shared_token={{album_token}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"api.aspx"
+							],
+							"query": [
+								{
+									"key": "method",
+									"value": "friendrequest"
+								},
+								{
+									"key": "isCustomErr",
+									"value": "false"
+								},
+								{
+									"key": "cloudcode",
+									"value": "public"
+								},
+								{
+									"key": "app_version",
+									"value": "3.4.259.d"
+								},
+								{
+									"key": "device_type",
+									"value": "android"
+								},
+								{
+									"key": "lang",
+									"value": "en"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "shared_token",
+									"value": "{{album_token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "friendlist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/api.aspx?method=friendlist&isCustomErr=false&cloudcode=test&app_version=3.4.259.d&device_type=android&lang=he&token={{token}}&event_token={{albim_token}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"api.aspx"
+							],
+							"query": [
+								{
+									"key": "method",
+									"value": "friendlist"
+								},
+								{
+									"key": "isCustomErr",
+									"value": "false"
+								},
+								{
+									"key": "cloudcode",
+									"value": "test"
+								},
+								{
+									"key": "app_version",
+									"value": "3.4.259.d"
+								},
+								{
+									"key": "device_type",
+									"value": "android"
+								},
+								{
+									"key": "lang",
+									"value": "he"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "event_token",
+									"value": "{{albim_token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "friendinvite",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/api.aspx?method=friendinvite&isCustomErr=false&cloudcode=test&app_version=3.4.259.d&device_type=android&lang=he&token={{token}}&event_token={{album_token}}&link_type=public",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"api.aspx"
+							],
+							"query": [
+								{
+									"key": "method",
+									"value": "friendinvite"
+								},
+								{
+									"key": "isCustomErr",
+									"value": "false"
+								},
+								{
+									"key": "cloudcode",
+									"value": "test"
+								},
+								{
+									"key": "app_version",
+									"value": "3.4.259.d"
+								},
+								{
+									"key": "device_type",
+									"value": "android"
+								},
+								{
+									"key": "lang",
+									"value": "he"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "event_token",
+									"value": "{{album_token}}"
+								},
+								{
+									"key": "link_type",
+									"value": "public"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "albums",
+			"item": [
+				{
+					"name": "create album",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/api.aspx?method=updatealbum&album_name=בדיקה&event_type=REGULAR&flipbook_new=true&lang=en&app_version=3.4.128.tf&device_type=ios&cloudcode=test&isCustomErr=false&token={{token}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"api.aspx"
+							],
+							"query": [
+								{
+									"key": "method",
+									"value": "updatealbum"
+								},
+								{
+									"key": "album_name",
+									"value": "בדיקה",
+									"description": "album name coded"
+								},
+								{
+									"key": "event_type",
+									"value": "REGULAR"
+								},
+								{
+									"key": "flipbook_new",
+									"value": "true"
+								},
+								{
+									"key": "lang",
+									"value": "en"
+								},
+								{
+									"key": "app_version",
+									"value": "3.4.128.tf"
+								},
+								{
+									"key": "device_type",
+									"value": "ios"
+								},
+								{
+									"key": "cloudcode",
+									"value": "test"
+								},
+								{
+									"key": "isCustomErr",
+									"value": "false"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "closealbum3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/api.aspx?method=closealbum3&event_token={{album_token}}&format=panoramic_normal&density=multiple&direction=RTL&album_theme=in_memoriam_israeli&is_cover_edited=false&flipbook_new=true&lang=en&app_version=3.4.128.tf&device_type=ios&cloudcode=test&isCustomErr=false&token={{token}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"api.aspx"
+							],
+							"query": [
+								{
+									"key": "method",
+									"value": "closealbum3"
+								},
+								{
+									"key": "event_token",
+									"value": "{{album_token}}"
+								},
+								{
+									"key": "format",
+									"value": "panoramic_normal"
+								},
+								{
+									"key": "density",
+									"value": "multiple"
+								},
+								{
+									"key": "direction",
+									"value": "RTL"
+								},
+								{
+									"key": "album_theme",
+									"value": "in_memoriam_israeli"
+								},
+								{
+									"key": "is_cover_edited",
+									"value": "false"
+								},
+								{
+									"key": "flipbook_new",
+									"value": "true"
+								},
+								{
+									"key": "lang",
+									"value": "en"
+								},
+								{
+									"key": "app_version",
+									"value": "3.4.128.tf"
+								},
+								{
+									"key": "device_type",
+									"value": "ios"
+								},
+								{
+									"key": "cloudcode",
+									"value": "test"
+								},
+								{
+									"key": "isCustomErr",
+									"value": "false"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatetree3",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/editor.aspx?method=updatetree3&event_token={{album_token}}&force=false&lang=en&app_version=3.4.128.tf&device_type=ios&cloudcode=test&isCustomErr=false&token={{token}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"editor.aspx"
+							],
+							"query": [
+								{
+									"key": "method",
+									"value": "updatetree3"
+								},
+								{
+									"key": "event_token",
+									"value": "{{album_token}}"
+								},
+								{
+									"key": "force",
+									"value": "false"
+								},
+								{
+									"key": "lang",
+									"value": "en"
+								},
+								{
+									"key": "app_version",
+									"value": "3.4.128.tf"
+								},
+								{
+									"key": "device_type",
+									"value": "ios"
+								},
+								{
+									"key": "cloudcode",
+									"value": "test"
+								},
+								{
+									"key": "isCustomErr",
+									"value": "false"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAlbum",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/api.aspx?method=deleteAlbum&event_token={{album_token}}&lang=en&app_version=3.4.128.tf&device_type=ios&cloudcode=test&isCustomErr=false&token={{token}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"api.aspx"
+							],
+							"query": [
+								{
+									"key": "method",
+									"value": "deleteAlbum"
+								},
+								{
+									"key": "event_token",
+									"value": "{{album_token}}"
+								},
+								{
+									"key": "lang",
+									"value": "en"
+								},
+								{
+									"key": "app_version",
+									"value": "3.4.128.tf"
+								},
+								{
+									"key": "device_type",
+									"value": "ios"
+								},
+								{
+									"key": "cloudcode",
+									"value": "test"
+								},
+								{
+									"key": "isCustomErr",
+									"value": "false"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "albumtexts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/api.aspx?method=albumtexts&lang=en&app_version=3.4.128.tf&device_type=ios&cloudcode=test&isCustomErr=false&token={{token}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"api.aspx"
+							],
+							"query": [
+								{
+									"key": "method",
+									"value": "albumtexts"
+								},
+								{
+									"key": "lang",
+									"value": "en"
+								},
+								{
+									"key": "app_version",
+									"value": "3.4.128.tf"
+								},
+								{
+									"key": "device_type",
+									"value": "ios"
+								},
+								{
+									"key": "cloudcode",
+									"value": "test"
+								},
+								{
+									"key": "isCustomErr",
+									"value": "false"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "albumsbyeventtoken",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/api.aspx?method=albumsbyeventtoken&event_token={{album_token}}&sort=insert_date&album_only=false&show_basket=false&show_friend_basket=false&lang=en&app_version=3.4.128.tf&device_type=ios&cloudcode=test&isCustomErr=false&token={{token}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"api.aspx"
+							],
+							"query": [
+								{
+									"key": "method",
+									"value": "albumsbyeventtoken"
+								},
+								{
+									"key": "event_token",
+									"value": "{{album_token}}"
+								},
+								{
+									"key": "sort",
+									"value": "insert_date"
+								},
+								{
+									"key": "album_only",
+									"value": "false"
+								},
+								{
+									"key": "show_basket",
+									"value": "false"
+								},
+								{
+									"key": "show_friend_basket",
+									"value": "false"
+								},
+								{
+									"key": "lang",
+									"value": "en"
+								},
+								{
+									"key": "app_version",
+									"value": "3.4.128.tf"
+								},
+								{
+									"key": "device_type",
+									"value": "ios"
+								},
+								{
+									"key": "cloudcode",
+									"value": "test"
+								},
+								{
+									"key": "isCustomErr",
+									"value": "false"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatealbum",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/api.aspx?method=updatealbum&album_name=בדיקה%20של%20ספראאאאאאא&event_type=REGULAR&flipbook_new=true&lang=en&app_version=3.4.128.tf&device_type=ios&cloudcode=test&isCustomErr=false&token={{token}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"api.aspx"
+							],
+							"query": [
+								{
+									"key": "method",
+									"value": "updatealbum"
+								},
+								{
+									"key": "album_name",
+									"value": "בדיקה%20של%20ספראאאאאאא"
+								},
+								{
+									"key": "event_type",
+									"value": "REGULAR"
+								},
+								{
+									"key": "flipbook_new",
+									"value": "true"
+								},
+								{
+									"key": "lang",
+									"value": "en"
+								},
+								{
+									"key": "app_version",
+									"value": "3.4.128.tf"
+								},
+								{
+									"key": "device_type",
+									"value": "ios"
+								},
+								{
+									"key": "cloudcode",
+									"value": "test"
+								},
+								{
+									"key": "isCustomErr",
+									"value": "false"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "closealbumsavecover",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/api.aspx?method=closealbumsavecover&event_token={{album_token}}&force=false&lang=en&app_version=3.4.128.tf&device_type=ios&cloudcode=test&isCustomErr=false&token={{token}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"api.aspx"
+							],
+							"query": [
+								{
+									"key": "method",
+									"value": "closealbumsavecover"
+								},
+								{
+									"key": "event_token",
+									"value": "{{album_token}}"
+								},
+								{
+									"key": "force",
+									"value": "false"
+								},
+								{
+									"key": "lang",
+									"value": "en"
+								},
+								{
+									"key": "app_version",
+									"value": "3.4.128.tf"
+								},
+								{
+									"key": "device_type",
+									"value": "ios"
+								},
+								{
+									"key": "cloudcode",
+									"value": "test"
+								},
+								{
+									"key": "isCustomErr",
+									"value": "false"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "upload",
+			"item": [
+				{
+					"name": "upload",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/upload.aspx?event_token={{album_token}}&filter=false&api=NATIVE&image_text=&jpeg_quality=40&date_taken=2023-11-26T20:01:10Z&lang=en&app_version=3.4.128.tf&device_type=ios&cloudcode=test&isCustomErr=false&token={{token}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"upload.aspx"
+							],
+							"query": [
+								{
+									"key": "event_token",
+									"value": "{{album_token}}",
+									"description": "book event token"
+								},
+								{
+									"key": "filter",
+									"value": "false"
+								},
+								{
+									"key": "api",
+									"value": "NATIVE",
+									"description": "source where the photo uploaded"
+								},
+								{
+									"key": "image_text",
+									"value": ""
+								},
+								{
+									"key": "jpeg_quality",
+									"value": "40"
+								},
+								{
+									"key": "date_taken",
+									"value": "2023-11-26T20:01:10Z"
+								},
+								{
+									"key": "lang",
+									"value": "en"
+								},
+								{
+									"key": "app_version",
+									"value": "3.4.128.tf"
+								},
+								{
+									"key": "device_type",
+									"value": "ios"
+								},
+								{
+									"key": "cloudcode",
+									"value": "test"
+								},
+								{
+									"key": "isCustomErr",
+									"value": "false"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "albumthemes3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/v1/api.aspx?method=albumthemes3&event_token={{album_token}}&format=panoramic_normal&direction=RTL&is_filter=false&image_count=27&lang=en&app_version=3.4.128.tf&device_type=ios&cloudcode=test&isCustomErr=false&token={{token}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"v1",
+						"api.aspx"
+					],
+					"query": [
+						{
+							"key": "method",
+							"value": "albumthemes3"
+						},
+						{
+							"key": "event_token",
+							"value": "{{album_token}}"
+						},
+						{
+							"key": "format",
+							"value": "panoramic_normal"
+						},
+						{
+							"key": "direction",
+							"value": "RTL"
+						},
+						{
+							"key": "is_filter",
+							"value": "false"
+						},
+						{
+							"key": "image_count",
+							"value": "27"
+						},
+						{
+							"key": "lang",
+							"value": "en"
+						},
+						{
+							"key": "app_version",
+							"value": "3.4.128.tf"
+						},
+						{
+							"key": "device_type",
+							"value": "ios"
+						},
+						{
+							"key": "cloudcode",
+							"value": "test"
+						},
+						{
+							"key": "isCustomErr",
+							"value": "false"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "202229147176167095216004109164039097056236021153129216177097138064109150199118004086151165148157176079032044255099083145168111129021130003177150"
+		},
+		{
+			"key": "base_url",
+			"value": "http://groupav4.lupa.co"
+		},
+		{
+			"key": "album_token",
+			"value": "251fce8185964f83bc40e7ac54c929ef",
+			"type": "string"
+		}
+	]
+}
