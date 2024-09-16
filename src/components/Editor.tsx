@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight, X, Upload } from 'lucide-react';
 import './Editor.css';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Image } from '@/tree';
 
 const Label = ({
   children,
@@ -13,11 +14,6 @@ const Label = ({
     {children}
   </label>
 );
-
-interface Image {
-  src: string;
-  alt: string;
-}
 
 const useBookState = () => {
   const [images, setImages] = useState<Image[]>([]);
@@ -118,8 +114,8 @@ const ImageList = ({
       {images.map((image, index) => (
         <div key={index} className='relative'>
           <img
-            src={image.src}
-            alt={image.alt}
+            src={image.m_image_name}
+            alt={image.m_image_name}
             className='w-full h-48 object-cover rounded-lg'
           />
           <Button
@@ -234,19 +230,12 @@ const BookPreview = ({
   );
 };
 
-export default function Editor() {
-  const {
-    images,
-    currentPage,
-    isOpen,
-    addImages,
-    removeImage,
-    flipPage,
-    toggleBook,
-  } = useBookState();
+export default function Editor({ images }: { images: Image[] }) {
+  const { currentPage, isOpen, addImages, removeImage, flipPage, toggleBook } =
+    useBookState();
 
   return (
-    <div className='container mx-auto p-4'>
+    <div className='container mx-auto p-4' data-test='editor'>
       <h1 className='text-3xl font-bold mb-6'>Photo Album Editor</h1>
       <div className='space-y-8'>
         <div>

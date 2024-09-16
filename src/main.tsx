@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.tsx';
 import './index.css';
-import Editor from './components/Editor.tsx';
+import EditorPage from './pages/Editor/index.tsx';
 
 const router = createBrowserRouter([
   {
@@ -12,16 +12,12 @@ const router = createBrowserRouter([
     errorElement: <div>Not Found...</div>,
   },
   {
-    path: '/album:id',
-    // element: <Album />,
-  },
-  {
     path: '/editor',
-    element: <Editor />,
-  },
-  {
-    path: '/album:id/editor',
-    element: <Editor />,
+    element: <EditorPage />,
+    loader: async () => {
+      const bookTree = (await import('@/assets/bookTree.json')).default;
+      return bookTree;
+    },
   },
 ]);
 
