@@ -5,6 +5,7 @@ import './Editor.css';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Image } from '@/tree';
+import { constructSocialLupaImageUrl } from '@/lib/helpers/images';
 
 const Label = ({
   children,
@@ -113,11 +114,7 @@ const ImageList = ({
     <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-8'>
       {images.map((image, index) => (
         <div key={index} className='relative'>
-          <img
-            src={image.m_image_name}
-            alt={image.m_image_name}
-            className='w-full h-48 object-cover rounded-lg'
-          />
+          <EditorImage image={image} />
           <Button
             className='absolute top-2 right-2 bg-red-500 hover:bg-red-600 p-1'
             onClick={() => onRemove(index)}
@@ -130,6 +127,25 @@ const ImageList = ({
   );
 };
 
+const EditorImage = ({ image }: { image: Image }) => {
+  const src = constructSocialLupaImageUrl(
+    'https://social.lupa.co.il/v3/img.aspx',
+    {
+      event_token: 'f0b49b8d0db946e49c396ac85c82554e',
+      picture: image.m_image_name,
+      type: 'thumb',
+      token:
+        'nuyKat_jv86-997qDGEGZME1BJVyxu1Odf0LaOxIpEAJ_nugwaAQnOvtPR7inL2Gc5M93Q1D1CVMCLSKJ0M2cZYX3gStaizLCUAG_PfmYOixV4-Zsr4QJjSo-fPMZMB9ZQT2bcmBg7pAnxmE5-kQHzG4ecCwgZPjcez4RLSCA-KN6V2fXy_zojbgkjRdqIe5NgSSXkJ8GvQ0gvbnIDKleWuCYThqJmGWUdSCFoB9savVSHt6MNHylSzshypDfegPezu78GsXpaGCMQDqoOfxaH4Ix85jhfAhs6jO03pGs2v6CepYPcmGkjmKUw3W1Wopbe4_p2nKAsgrDYZ33FrszA2',
+    }
+  );
+  return (
+    <img
+      src={src}
+      alt={image.m_image_name}
+      className='w-full h-48 object-cover rounded-lg'
+    />
+  );
+};
 const BookPreview = ({
   images,
   currentPage,
