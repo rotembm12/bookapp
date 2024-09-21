@@ -2,15 +2,19 @@ import { Card } from '@/components/ui/card';
 import { CSS } from '@dnd-kit/utilities';
 
 import { useDraggable, useDroppable } from '@dnd-kit/core';
-export type Image = {
+import { CSSProperties } from 'react';
+export type AlbumImage = {
   id: string;
   src: string;
+  index: number;
+  layoutId: string;
 };
 export type AlbumPageProps = {
   id: string;
   title: string;
-  images: Image[];
+  images: AlbumImage[];
 };
+
 export const AlbumPage = ({
   id,
   title,
@@ -18,14 +22,21 @@ export const AlbumPage = ({
 }: {
   id: string;
   title: string;
-  images: Image[];
+  images: AlbumImage[];
 }) => {
+  useDraggable({
+    id,
+    data: {
+      type: 'page',
+    },
+  });
   return (
-    <Card className='p-4'>
+    <Card className='p-4 w-[24%]'>
       {id} - {title}
       <div
         style={{
           display: 'flex',
+          flexWrap: 'wrap',
           gap: '10px',
           marginTop: '10px',
         }}
@@ -44,18 +55,8 @@ export const AlbumPage = ({
   );
 };
 
-const Image = ({
-  id,
-  src,
-  layoutId,
-  index,
-}: {
-  id: string;
-  src: string;
-  index: number;
-  layoutId: string;
-}) => {
-  const { setNodeRef: setDroppableRef } = useDroppable({
+const Image = ({ id, src, layoutId, index }: AlbumImage) => {
+  const { setNodeRef: setDroppableRef, over } = useDroppable({
     id,
     data: {
       accepts: 'image',
@@ -66,40 +67,47 @@ const Image = ({
     },
   });
   return (
-    <Card ref={setDroppableRef}>
+    <Card ref={setDroppableRef} className='max-w-[45%]'>
       <DragableImage src={src} layoutId={layoutId} index={index} id={id} />
     </Card>
   );
 };
 
-const DragableImage = ({
+export const DragableImage = ({
   src,
   layoutId,
   index,
   id,
-}: {
-  src: string;
-  layoutId: string;
-  index: number;
-  id: string;
-}) => {
-  const { attributes, listeners, setNodeRef, transform } = useDraggable({
-    id,
-    data: {
-      type: 'image',
-      src,
-      layoutId,
-      index,
-    },
-  });
+  style = {},
+}: AlbumImage & { style?: CSSProperties }) => {
+  const { attributes, listeners, setNodeRef, transform, isDragging } =
+    useDraggable({
+      id,
+      data: {
+        type: 'image',
+        src,
+        layoutId,
+        id,
+        index,
+      },
+    });
+
   return (
-    <img
-      style={{ transform: CSS.Transform.toString(transform) }}
+    <div
+      style={{
+        ...style,
+        transform: CSS.Transform.toString(transform),
+        opacity: isDragging ? '0.4' : '1',
+        cursor: isDragging ? 'grabbing' : 'grab',
+      }}
       ref={setNodeRef}
       {...attributes}
       {...listeners}
-      src={src}
-      alt='asdas'
-    />
+    >
+      <StyledImage src={src} />
+    </div>
   );
+};
+export const StyledImage = ({ src }: { src: string }) => {
+  return <img src={src} />;
 };

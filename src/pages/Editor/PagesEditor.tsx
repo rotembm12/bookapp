@@ -1,4 +1,4 @@
-import { act, useState } from 'react';
+import { PropsWithChildren, useState } from 'react';
 import {
   DndContext,
   closestCenter,
@@ -6,94 +6,63 @@ import {
   PointerSensor,
   useSensor,
   useSensors,
-  DragOverlay,
   DragStartEvent,
   DragEndEvent,
+  DragOverlay,
 } from '@dnd-kit/core';
 import {
-  arrayMove,
   SortableContext,
   sortableKeyboardCoordinates,
   rectSortingStrategy,
 } from '@dnd-kit/sortable';
-import { AlbumPage, Image, AlbumPageProps } from './AlbumPage';
-import img1 from './images/img1.jpg';
-import img2 from './images/img2.jpg';
-import img3 from './images/img3.jpg';
-const initialLayouts: AlbumPageProps[] = [
-  { id: 'layout1', images: [{ id: 'img1', src: img1 }], title: 'Page 1' },
-  {
-    id: 'layout2',
-    title: 'Page2',
-    images: [
-      { id: 'img21234124', src: img2 },
-      { id: 'img366767gfvb', src: img3 },
-    ],
-  },
-  {
-    id: 'layout3',
-    title: 'Page2',
-    images: [
-      { id: 'img2szdvszaasaa', src: img1 },
-      { id: 'img3zsdvzsd', src: img3 },
-    ],
-  },
-  {
-    id: 'layout4',
-    title: 'Page2',
-    images: [
-      { id: 'img212fdd', src: img2 },
-      { id: 'img3erg bd', src: img1 },
-    ],
-  },
-  {
-    id: 'layout5',
-    title: 'Page2',
-    images: [
-      { id: 'img2waef', src: img2 },
-      { id: 'img3hjkkklk', src: img3 },
-    ],
-  },
-];
+import {
+  AlbumPage,
+  AlbumImage,
+  AlbumPageProps,
+  StyledImage,
+} from './AlbumPage';
+
+import ActionsPanel from './ActionsPanel';
+import { initialPages } from './initialPages';
 
 export default function PhotoAlbumCreator() {
-  const [pages, setPages] = useState<AlbumPageProps[]>(initialLayouts);
+  const [pages, setPages] = useState<AlbumPageProps[]>(initialPages);
+  const [activePhoto, setActivePhoto] = useState<AlbumImage>();
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(KeyboardSensor, {
       coordinateGetter: sortableKeyboardCoordinates,
     })
   );
-  const [activePhoto, setActivePhoto] = useState<Image>();
 
-  const getPageIndex = (id: string) => {
-    return pages.findIndex((page) => page.id === id);
-  };
   const handleDragEnd = (event: DragEndEvent) => {
-    const { over } = event;
-    console.log({ activePhoto, over });
-    if (activePhoto.layoutId !== over?.data.current.layoutId) {
-      const updatedPages = pages.map((page) => {
-        if (page.id === activePhoto.layoutId) {
-          page.images[activePhoto.index].src = over?.data.current.src;
-          return page;
-        }
-
-        if (page.id === over?.data.current.layoutId) {
-          page.images[over?.data.current.index].src = activePhoto.src;
-          return page;
-        }
-        return page;
+    const { over, active } = event;
+    if (!activePhoto || !over?.data.current) return;
+    let updatedPages: AlbumPageProps[] = [];
+    if (activePhoto.layoutId === 'external') {
+      updatedPages = handleAddExternalImage({
+        pages,
+        draggedImage: activePhoto,
+        droppableContainer: over.data.current as AlbumImage,
       });
-      setPages(updatedPages);
+    } else {
+      updatedPages = getUpdatedPagesAfterImageSwap({
+        pages,
+        draggedImage: activePhoto,
+        droppableContainer: over.data.current as AlbumImage,
+      });
     }
+
+    setPages(updatedPages);
   };
+
   const handleDragStart = ({ active }: DragStartEvent) => {
-    console.log({ active });
-    setActivePhoto({ ...active.data.current, id: active.id });
+    const activeId = active.id as string;
+    setActivePhoto({ ...active.data.current, id: activeId } as AlbumImage);
   };
+
   return (
-    <div className='p-4'>
+    <div className='p-4 w-screen'>
       <h1 className='text-2xl font-bold mb-4'>Photo Album Creator</h1>
       <DndContext
         onDragEnd={handleDragEnd}
@@ -101,11 +70,11 @@ export default function PhotoAlbumCreator() {
         collisionDetection={closestCenter}
         onDragStart={handleDragStart}
       >
-        <SortableContext
-          items={pages.map((page) => page.id)}
-          strategy={rectSortingStrategy}
-        >
-          <div className='grid grid-cols-3 gap-4'>
+        <EditorLayout>
+          <SortableContext
+            items={pages.map((page) => page.id)}
+            strategy={rectSortingStrategy}
+          >
             {pages.map((page) => (
               <AlbumPage
                 id={page.id}
@@ -114,9 +83,85 @@ export default function PhotoAlbumCreator() {
                 images={page.images}
               />
             ))}
-          </div>
-        </SortableContext>
+          </SortableContext>
+          <DragOverlay>
+            {activePhoto && <StyledImage {...activePhoto} />}
+          </DragOverlay>
+        </EditorLayout>
       </DndContext>
     </div>
   );
 }
+
+const EditorLayout = ({ children }: PropsWithChildren) => {
+  return (
+    <div className='flex gap-4'>
+      <div className='min-w-[90%] flex flex-wrap gap-4'>{children}</div>
+      <ActionsPanel />
+    </div>
+  );
+};
+
+const handleAddExternalImage = ({
+  pages,
+  droppableContainer,
+  draggedImage,
+}: {
+  draggedImage: AlbumImage;
+  droppableContainer: AlbumImage;
+  pages: AlbumPageProps[];
+}) => {
+  const updatedPages = pages.map((page) => {
+    if (page.id === droppableContainer.layoutId) {
+      draggedImage.layoutId = droppableContainer.layoutId;
+      draggedImage.index = page.images.length;
+      page.images.push(draggedImage);
+      return page;
+    }
+
+    return page;
+  });
+
+  return updatedPages;
+};
+const getUpdatedPagesAfterImageSwap = ({
+  pages,
+  droppableContainer,
+  draggedImage,
+}: {
+  draggedImage: AlbumImage;
+  droppableContainer: AlbumImage;
+  pages: AlbumPageProps[];
+}) => {
+  const handleMultiPageImageSwap = () => {
+    return pages.map((page) => {
+      if (page.id === draggedImage.layoutId) {
+        page.images[draggedImage.index].src = droppableContainer.src;
+        return page;
+      }
+
+      if (page.id === droppableContainer.layoutId) {
+        page.images[droppableContainer.index].src = draggedImage.src;
+        return page;
+      }
+      return page;
+    });
+  };
+
+  const handleInPageImageSwap = () => {
+    return pages.map((page) => {
+      if (page.id === draggedImage.layoutId) {
+        const [removed] = page.images.splice(draggedImage.index, 1);
+        page.images.splice(droppableContainer?.index, 0, removed);
+        return page;
+      }
+      return page;
+    });
+  };
+
+  if (draggedImage.layoutId !== droppableContainer.layoutId) {
+    return handleMultiPageImageSwap();
+  }
+
+  return handleInPageImageSwap();
+};
