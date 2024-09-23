@@ -1,50 +1,67 @@
-# React + TypeScript + Vite
+# Welcome to Lupa Book Project! 🎉
+We are excited to have you on board!
+Below you will find all the information you need to get started with the project.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Project Guidelines
 
-Currently, two official plugins are available:
+## 1. Understand the PRD
+Before starting any task:
+- Clarify edge cases and challenges.
+- Implement all design states: hover, active, focus, disabled, etc.
+- Start with the lowest breakpoint and ensure responsive behavior.
+- Ensure cross-browser compatibility.
+- Understand how the feature handles all scenarios, including errors.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 2. Folder Structure
+Adopt the `bulletproof-react` folder structure for a scalable and maintainable architecture.
+(Details to be defined)
 
-## Expanding the ESLint configuration
+## 3. Writing Maintainable Code
+- **Readable:** Your code should be understandable at a glance, even for junior developers.
+- **Easy to Debug:** Provide clear error handling and logging.
+- **Extendable:** Code should be modular, making future feature additions simple.
+- **Performant:** Use techniques like lazy loading, code splitting, and caching.
+- **Testing:** Each feature should have end-to-end tests for all primary paths.
+  - If working on shared components/hooks, ensure:
+    1. Documented types.
+    2. Storybook showcase.
+    3. Unit tests (Cypress recommended).
+    4. Visual tests (TBD).
+- **Linting:** Leave no linter or TypeScript errors before submitting PRs.
+- **Error Handling:** Use `try-catch` and provide user-friendly messages.
+- **Custom Code vs Libraries:** Evaluate based on the project's needs and discuss each case.
+- **Comment Wisely:** Focus comments on the "why" rather than the "what."
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 4. Tech Debt
+- **0 Tech Debt Policy:** Keep the codebase clean and maintainable at all times.
 
-- Configure the top-level `parserOptions` property like this:
+## 5. Git Workflow
+- **Commits:**
+  - Use small, logical units of work.
+  - Follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), e.g., `feat: add login page`, `fix: resolve crash on mobile`.
+  - Create branches from JIRA tickets.
+- **Pull Requests:**
+  - Keep PRs small and focused on one issue or feature.
+  - Before submitting:
+    1. Fill out the PR template for reviewer context.
+    2. Create a video walkthrough:
+       - Start with Figma design comparisons.
+       - Showcase your feature.
+       - Explain your code from top to bottom.
+  - Request reviews from both the tech lead and a teammate for knowledge sharing.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 6. Code Reviews
+- **First CR:** Will be live to ensure alignment with review expectations.
+- **Review Standards:** Follow best practices for readability, maintainability, and performance.
+- **Constructive Feedback:** Ask questions and offer feedback that improves the code quality.
+- **Approval:** Only the reviewer can resolve conversations and approve the PR.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## 7. Communication & Collaboration
+- **Tools:**
+  - Use Slack for communication.
+  - JIRA for task management.
+- **JIRA Tickets:**
+  - Ensure tickets are clear, with acceptance criteria and design references.
+  - Update task status regularly.
+- **Team Meetings:** TBD.
+- **UX Questions:** Use the dedicated Slack channel for UX discussions.
