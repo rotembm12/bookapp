@@ -3,12 +3,17 @@ import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import EditorPage from './pages/Editor/index.tsx';
 import './index.css';
+import ImageEditor from './pages/Editor/ImageEditor.tsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <EditorPage />,
     errorElement: <div>Not Found...</div>,
+  },
+  {
+    path: '/editor/img',
+    element: <ImageEditor />,
   },
   {
     path: '/editor',
