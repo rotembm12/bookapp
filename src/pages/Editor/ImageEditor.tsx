@@ -1,5 +1,4 @@
 import { createDefaultImageWriter, getEditorDefaults } from '@pqina/pintura';
-import img1 from './images/img1.jpg';
 import { PinturaEditor } from '@pqina/react-pintura';
 import '@pqina/pintura/pintura.css';
 import { useRef } from 'react';
