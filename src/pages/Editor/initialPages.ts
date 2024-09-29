@@ -45,40 +45,40 @@ export const initialPages: AlbumPageProps[] = [
     id: 'layout6',
     title: 'Page2',
     images: [
-      { id: 'img2waefasd', src: img2, layoutId: 'layout6', index: 0 },
-      { id: 'img3hjkkklkasddd', src: img3, layoutId: 'layout6', index: 1 },
+      { id: 'img2waefasd1', src: img2, layoutId: 'layout6', index: 0 },
+      { id: 'img3hjkkklkasddd1', src: img3, layoutId: 'layout6', index: 1 },
     ],
   },
   {
     id: 'layout7',
     title: 'Page2',
     images: [
-      { id: 'img2waefasdasd', src: img2, layoutId: 'layout7', index: 0 },
-      { id: 'img3hjkkklkasdd', src: img3, layoutId: 'layout7', index: 1 },
+      { id: 'img2waefasdasd2', src: img2, layoutId: 'layout7', index: 0 },
+      { id: 'img3hjkkklkasdd2', src: img3, layoutId: 'layout7', index: 1 },
     ],
   },
   {
     id: 'layout8',
     title: 'Page2',
     images: [
-      { id: 'img2waefasdasd', src: img2, layoutId: 'layout8', index: 0 },
-      { id: 'img3hjkkklkasdd', src: img3, layoutId: 'layout8', index: 1 },
+      { id: 'img2waefasdasd3', src: img2, layoutId: 'layout8', index: 0 },
+      { id: 'img3hjkkklkasdd3', src: img3, layoutId: 'layout8', index: 1 },
     ],
   },
   {
     id: 'layout9',
     title: 'Page2',
     images: [
-      { id: 'img2waefasdasd', src: img2, layoutId: 'layout9', index: 0 },
-      { id: 'img3hjkkklkasdd', src: img3, layoutId: 'layout9', index: 1 },
+      { id: 'img2waefasdasd4', src: img2, layoutId: 'layout9', index: 0 },
+      { id: 'img3hjkkklkasdd4', src: img3, layoutId: 'layout9', index: 1 },
     ],
   },
   {
     id: 'layout10',
     title: 'Page2',
     images: [
-      { id: 'img2waefasdasd', src: img2, layoutId: 'layout10', index: 0 },
-      { id: 'img3hjkkklkasdd', src: img3, layoutId: 'layout10', index: 1 },
+      { id: 'img2waefasdasd5', src: img2, layoutId: 'layout10', index: 0 },
+      { id: 'img3hjkkklkasdd5', src: img3, layoutId: 'layout10', index: 1 },
     ],
   },
 ];

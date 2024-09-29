@@ -1,5 +1,4 @@
-# Welcome to Lupa Book Project! 🎉
-
+# Welcome to Lupa Online Project! 🎉
 We are excited to have you on board!
 Below you will find all the information you need to get started with the project.
 
@@ -19,6 +18,7 @@ Before starting any task:
 
 Adopt the `bulletproof-react` folder structure for a scalable and maintainable architecture.
 (Details to be defined)
+- A feature is considered a component with data (container/template).
 
 ## 3. Writing Maintainable Code
 
@@ -61,7 +61,7 @@ Adopt the `bulletproof-react` folder structure for a scalable and maintainable a
 ## 6. Code Reviews
 
 - **First CR:** Will be live to ensure alignment with review expectations.
-- **Review Standards:** Follow best practices for readability, maintainability, and performance.
+- **Review Standards:** Follow best practices for readability, maintainability, and performance. Also ensure the PR treating all paths (happy and unhappy).
 - **Constructive Feedback:** Ask questions and offer feedback that improves the code quality.
 - **Approval:** Only the reviewer can resolve conversations and approve the PR.
 
@@ -75,3 +75,25 @@ Adopt the `bulletproof-react` folder structure for a scalable and maintainable a
   - Update task status regularly.
 - **Team Meetings:** TBD.
 - **UX Questions:** Use the dedicated Slack channel for UX discussions.
+
+
+## Tech Stack
+- Framework (Vite)
+- TypeScript
+- Linter
+- React Router - for navigation
+- Tailwind - For styling
+- Global state - Zustand
+- TanStack Query - for API calles
+- UI Components - Shadcn
+- Tests - Cypress
+- Drag and drop - React dnd kit
+- Image editing - Pintura
+
+
+How to work with Storybook
+- Design system is a must
+- if a feature
+
+Microfrontends
+NX/Monorepo
